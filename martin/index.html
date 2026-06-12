@@ -4,243 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>Martin Jensen | TriPoint Compliance</title>
-  <meta name="description" content="Martin Jensen, Founding Partner at TriPoint Compliance & Business Solutions">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #0d1526;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .card-wrapper {
-      width: 100%;
-      max-width: 420px;
-    }
-
-    .card {
-      background: linear-gradient(145deg, #1a2744 0%, #0d1526 60%, #1a2744 100%);
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(180,190,220,0.08);
-      position: relative;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, #8a9bc4, #c0cadc, #8a9bc4, transparent);
-    }
-
-    .card-top {
-      padding: 36px 36px 24px;
-      position: relative;
-    }
-
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 30px;
-    }
-
-    .logo-img {
-      width: 72px;
-      height: 72px;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
-
-    .divider-line {
-      width: 1px;
-      height: 48px;
-      background: linear-gradient(180deg, transparent, rgba(180,190,220,0.3), transparent);
-      flex-shrink: 0;
-    }
-
-    .company-name {
-      color: #ffffff;
-      font-size: 11.5px;
-      font-weight: 600;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-      line-height: 1.55;
-      opacity: 0.8;
-    }
-
-    .name-block {
-      margin-bottom: 6px;
-    }
-
-    .name {
-      font-size: 32px;
-      font-weight: 700;
-      color: #ffffff;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-    }
-
-    .title {
-      font-size: 13px;
-      font-weight: 500;
-      color: #8a9bc4;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-top: 8px;
-    }
-
-    .silver-rule {
-      width: 48px;
-      height: 2px;
-      background: linear-gradient(90deg, #8a9bc4, #c0cadc);
-      border-radius: 2px;
-      margin: 20px 0;
-    }
-
-    .contact-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-decoration: none;
-      color: inherit;
-      transition: opacity 0.2s;
-    }
-
+    body { font-family: 'Inter', sans-serif; background: #0d1526; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+    .card-wrapper { width: 100%; max-width: 420px; }
+    .card { background: linear-gradient(145deg, #1a2744 0%, #0d1526 60%, #1a2744 100%); border-radius: 24px; overflow: hidden; box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(180,190,220,0.08); position: relative; }
+    .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, #8a9bc4, #c0cadc, #8a9bc4, transparent); }
+    .card-top { padding: 36px 36px 24px; }
+    .logo-area { display: flex; align-items: center; gap: 16px; margin-bottom: 30px; }
+    .logo-img { width: 72px; height: 72px; object-fit: contain; flex-shrink: 0; }
+    .divider-line { width: 1px; height: 48px; background: linear-gradient(180deg, transparent, rgba(180,190,220,0.3), transparent); flex-shrink: 0; }
+    .company-name { color: #ffffff; font-size: 11.5px; font-weight: 600; letter-spacing: 0.11em; text-transform: uppercase; line-height: 1.55; opacity: 0.8; }
+    .name { font-size: 32px; font-weight: 700; color: #ffffff; letter-spacing: -0.02em; line-height: 1.1; }
+    .title { font-size: 13px; font-weight: 500; color: #8a9bc4; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 8px; }
+    .silver-rule { width: 48px; height: 2px; background: linear-gradient(90deg, #8a9bc4, #c0cadc); border-radius: 2px; margin: 20px 0; }
+    .contact-grid { display: flex; flex-direction: column; gap: 14px; }
+    .contact-item { display: flex; align-items: center; gap: 14px; text-decoration: none; color: inherit; transition: opacity 0.2s; }
     .contact-item:hover { opacity: 0.75; }
-
-    .icon-wrap {
-      width: 36px;
-      height: 36px;
-      background: rgba(138,155,196,0.1);
-      border: 1px solid rgba(138,155,196,0.2);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .icon-wrap svg {
-      width: 16px;
-      height: 16px;
-      stroke: #8a9bc4;
-      fill: none;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .contact-label {
-      font-size: 10px;
-      font-weight: 600;
-      color: #8a9bc4;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .contact-value {
-      font-size: 14px;
-      font-weight: 400;
-      color: #dce3f0;
-      margin-top: 1px;
-    }
-
-    .address-block {
-      padding: 0 36px 24px;
-    }
-
-    .address-text {
-      font-size: 12px;
-      color: rgba(138,155,196,0.55);
-      line-height: 1.5;
-    }
-
-    .card-bottom {
-      background: rgba(0,0,0,0.25);
-      border-top: 1px solid rgba(138,155,196,0.1);
-      padding: 22px 36px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .qr-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .qr-wrap {
-      background: white;
-      padding: 10px;
-      border-radius: 12px;
-      width: 96px;
-      height: 96px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .qr-wrap img {
-      width: 76px;
-      height: 76px;
-    }
-
-    .qr-label {
-      font-size: 9px;
-      color: #8a9bc4;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-weight: 600;
-      text-align: center;
-    }
-
-    .save-btn {
-      flex: 1;
-      background: linear-gradient(135deg, #8a9bc4 0%, #c0cadc 100%);
-      color: #0d1526;
-      border: none;
-      border-radius: 14px;
-      padding: 14px 20px;
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      cursor: pointer;
-      text-align: center;
-      text-decoration: none;
-      display: block;
-      transition: opacity 0.2s, transform 0.1s;
-    }
-
+    .icon-wrap { width: 36px; height: 36px; background: rgba(138,155,196,0.1); border: 1px solid rgba(138,155,196,0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .icon-wrap svg { width: 16px; height: 16px; stroke: #8a9bc4; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .contact-label { font-size: 10px; font-weight: 600; color: #8a9bc4; text-transform: uppercase; letter-spacing: 0.1em; }
+    .contact-value { font-size: 14px; font-weight: 400; color: #dce3f0; margin-top: 1px; }
+    .address-block { padding: 0 36px 24px; }
+    .address-text { font-size: 12px; color: rgba(138,155,196,0.55); line-height: 1.5; }
+    .card-bottom { background: rgba(0,0,0,0.25); border-top: 1px solid rgba(138,155,196,0.1); padding: 22px 36px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .qr-section { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .qr-wrap { background: white; padding: 10px; border-radius: 12px; width: 96px; height: 96px; display: flex; align-items: center; justify-content: center; }
+    .qr-wrap img { width: 76px; height: 76px; }
+    .qr-label { font-size: 9px; color: #8a9bc4; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; text-align: center; }
+    .save-btn { flex: 1; background: linear-gradient(135deg, #8a9bc4 0%, #c0cadc 100%); color: #0d1526; border: none; border-radius: 14px; padding: 14px 20px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; cursor: pointer; text-align: center; text-decoration: none; display: block; transition: opacity 0.2s, transform 0.1s; }
     .save-btn:hover { opacity: 0.9; transform: translateY(-1px); }
-    .save-btn:active { transform: translateY(0); }
-
-    .save-sub {
-      font-size: 10px;
-      font-weight: 500;
-      opacity: 0.65;
-      display: block;
-      margin-top: 3px;
-      letter-spacing: 0.02em;
-    }
+    .save-sub { font-size: 10px; font-weight: 500; opacity: 0.65; display: block; margin-top: 3px; letter-spacing: 0.02em; }
   </style>
 </head>
 <body>
@@ -252,60 +47,33 @@
           <div class="divider-line"></div>
           <div class="company-name">TriPoint Compliance<br>&amp; Business Solutions</div>
         </div>
-
-        <div class="name-block">
-          <div class="name">Martin Jensen</div>
-          <div class="title">Founding Partner</div>
-        </div>
-
+        <div class="name">Martin Jensen</div>
+        <div class="title">Founding Partner</div>
         <div class="silver-rule"></div>
-
         <div class="contact-grid">
           <a class="contact-item" href="tel:+17026087242">
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 11.5 19.79 19.79 0 01.36 2.82 2 2 0 012.34.65h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
-            </div>
-            <div>
-              <div class="contact-label">Phone</div>
-              <div class="contact-value">(702) 608-7242</div>
-            </div>
+            <div class="icon-wrap"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 11.5 19.79 19.79 0 01.36 2.82 2 2 0 012.34.65h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg></div>
+            <div><div class="contact-label">Phone</div><div class="contact-value">(702) 608-7242</div></div>
           </a>
-
           <a class="contact-item" href="mailto:mjensen@tripointcompliance.com">
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div>
-              <div class="contact-label">Email</div>
-              <div class="contact-value">mjensen@tripointcompliance.com</div>
-            </div>
+            <div class="icon-wrap"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="contact-label">Email</div><div class="contact-value">mjensen@tripointcompliance.com</div></div>
           </a>
-
           <a class="contact-item" href="https://tripointcompliance.com" target="_blank">
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-            </div>
-            <div>
-              <div class="contact-label">Website</div>
-              <div class="contact-value">tripointcompliance.com</div>
-            </div>
+            <div class="icon-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+            <div><div class="contact-label">Website</div><div class="contact-value">tripointcompliance.com</div></div>
           </a>
         </div>
       </div>
-
       <div class="address-block">
         <div class="address-text">3271 E. Warm Springs Rd. &nbsp;·&nbsp; Las Vegas, NV 89120</div>
       </div>
-
       <div class="card-bottom">
         <div class="qr-section">
-          <div class="qr-wrap">
-            <img src="data:image/png;base64,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sAAAYgQLACBGsAAAYgQLACDmO70D/1/b5pu796e7n6C7R6G6/p82Hz/Vk5Hqh5g6nlM9Aanf231fd19X3X0zr/SIVE3dL91/F7yxAABiBAsAIEawAABiBAsAIEawAABiBAsAIEawAABiyj0W2/4/+Km+ge6589R2p3ovUnPt1e1Wda/TfRy6P3+zrefjlefATff1P3Wdp9b51T6MqedY9/3ijQUAECNYAAAxggUAECNYAAAxggUAECNYAAAxggUAEFPusZiaA07NDafW7547T+1P97zyK30V3ddPSuo6mbreqqZ6WaZ6aKq6r/9UP0TKtudV93a3rZ86Dt5YAAAxggUAECNYAAAxggUAECNYAAAxggUAECNYAAAx5R6LlG3z092qvyvVA1Hdn5vu/oDb57f1T6R6F6b6PKrrb+ur6L4eprabMtVXse18pXT/PfrVXg1vLACAGMECAIgRLACAGMECAIgRLACAGMECAIgRLACAmM85J7LQK3PeU/0Zqd6Cqf4D+5/d7utz6lPn5eb1+7q6fmqdbtueAymv91t0H39vLACAGMECAIgRLACAGMECAIgRLACAGMECAIgRLACAmG/3BlLz5anPp2zr7eiea5+aR+9ev7tXYGquvfs4d8/ZT+1/t9R2X+ll6X7OTH3+9edt999NbywAgBjBAgCIESwAgBjBAgCIESwAgBjBAgCIESwAgJhyj8W2/obUPP0r8/fd88fbekG69+eVPoNt19VUb0FV6nfdTJ3H7nW6j39qne4+ldf7Qqaeb95YAAAxggUAECNYAAAxggUAECNYAAAxggUAECNYAAAx5R6L7jnvbfP9r9vWS3GT2s/U/PdU30Bq/dR2q7b1bUxdD39aX8XNVA9KyivHf6rn48YbCwAgRrAAAGIECwAgRrAAAGIECwAgRrAAAGIECwAg5nPOmd6H/5OpXoSq1Dzx1O99vRdk6rx36+7DqG53qh+ialuvw7aej9f7Wl75/JSpvwveWAAAMYIFABAjWAAAMYIFABAjWAAAMYIFABAjWAAAMeUei23/33zKnzZnv22efmqdm6nekan9udk2r//KcUt55fmzrb9nm1f6UVLH0xsLACBGsAAAYgQLACBGsAAAYgQLACBGsAAAYgQLACDmW/1Cdc61uy9h29x51Ss9BKn55u51br+re2572xx51bbegtTnb7b1qaTu9+rxmeqfuJnq7Zjyq7/XGwsAIEawAABiBAsAIEawAABiBAsAIEawAABiBAsAIOZzzmndQPec99T8On/t9R6ObdfJtuNZXf9mqi8hpfu6qm63+zm5rS9kW7/IK+t088YCAIgRLACAGMECAIgRLACAGMECAIgRLACAGMECAIj5Vr+Qmm+url/9/G1/ts1hV23r+bjZ1v8xdd2mzlfqutp2nXSb6sPovt5uXun/+NNs67fo7sPwxgIAiBEsAIAYwQIAiBEsAIAYwQIAiBEsAIAYwQIAiCn3WNxMzcd39zpM7X/K63PSr/RqTF1XU/0x1XW6+zlSuven+3e5Dv9a99+Lm+7n5zbeWAAAMYIFABAjWAAAMYIFABAjWAAAMYIFABAjWAAAMZ9zTmSh1+dub17vV+i27Ths6xFJqc7ZT/WIpHoCtvU9pPZ/6nqb2v/Xj1vV1H2a2p8UbywAgBjBAgCIESwAgBjBAgCIESwAgBjBAgCIESwAgJhvaqHX5+Crc72peeKqqbnk7u2+cr62zf1XbbtPu73ye195vv1p1+crvTjV/ew+j95YAAAxggUAECNYAAAxggUAECNYAAAxggUAECNYAAAxn3NO6Qvb+gxutvUHpH5XSmpuu3u7r8yXd+/PK30JN9330dT+d5+X6v5U15/az6n9udn2nJl6HqbOizcWAECMYAEAxAgWAECMYAEAxAgWAECMYAEAxAgWAEDMt3sD1bnYV3ojtvVS3HT3N7wyd/56H8O241zdbmouf+rzKd19A6l1qsdh6rm97fl2s+18dfPGAgCIESwAgBjBAgCIESwAgBjBAgCIESwAgBjBAgCIifVYTM2d36TW2TZPn5pjnpqrTu1n95z9tp6S1HFO9Uxs032/V7fbLbXdqefMKz0N3fuTeo5t6+nxxgIAiBEsAIAYwQIAiBEsAIAYwQIAiBEsAIAYwQIAiPmcc0pfmOo/mOq9uNnWP5GaP56a49+23V+dm9+m+76+merL6f5dN1M9N6n1U371PrqZeq56YwEAxAgWAECMYAEAxAgWAECMYAEAxAgWAECMYAEAxHyrX5jqjbhJzYtX16nuf3e/RVX3vH51nW2/t3u7U3P/U/0NU7r3s/v+ndr/m+7nWPd90X0fpbY7tX7qPHpjAQDECBYAQIxgAQDECBYAQIxgAQDECBYAQIxgAQDElHssblJzsVO9Dt37nzLVQ9Ddx9B9fm+27f/rvQtVU/0l3T06qV6cqX6gm+7n+bbfe7Otf2jbc8wbCwAgRrAAAGIECwAgRrAAAGIECwAgRrAAAGIECwAg5nPOKX1hW6/DK6bmrW+m5tG7+wOmvDLH//r61e2+8lzadv1s6zuZ8sp11b0/1fPujQUAECNYAAAxggUAECNYAAAxggUAECNYAAAxggUAENPeY1G1bf1X5sK756en5uxTpo7z6z0B266r6jpV2+7T7uvhld87dd9N9UDcbOsTuvHGAgCIESwAgBjBAgCIESwAgBjBAgCIESwAgBjBAgCI+aYWmpqXTW23e75825z91Hx297x19Xeltvv63H/Ktj6A7uOw7blXta1fYVtfRff13H39TPXEeGMBAMQIFgBAjGABAMQIFgBAjGABAMQIFgBAjGABAMTEeiym/j/4qXVe7xu42TZ//8r1s23+vrrdm9T56v787Xdt69V4xbbnUlXqvHcfh239Rqn98cYCAIgRLACAGMECAIgRLACAGMECAIgRLACAGMECAIj5nHNKX3h9vjmluw/gFa/0K0yZ6sm4SR3nbfP3KVPXVXevydT9te16q273dVP9Ut5YAAAxggUAECNYAAAxggUAECNYAAAxggUAECNYAAAx3+oXUr0FqfW3zdOn5s67TR3nm+7tvtITUF2nup/V7U71lEx5pZdlW+/C1O+duu+mrodX7kdvLACAGMECAIgRLACAGMECAIgRLACAGMECAIgRLACAmM85p/SFqTngqqkegu79mdruTff+VNdJ2bY/N1PHv2rb9bztuE09P3+1l+hmW//HK6rnxRsLACBGsAAAYgQLACBGsAAAYgQLACBGsAAAYgQLACCm3GOR8socdvd2U/Pr3fP92/onzNn/tW39JVVTfSrV9V/vfXn9eXIz1SuT8sr1fOONBQAQI1gAADGCBQAQI1gAADGCBQAQI1gAADGCBQAQU+6x2DZn3/35Kd09AVN+tT9gqjdiW8/Bzbb+hqqp85jySj/Nzbb7t7rdm6nnfPf97o0FABAjWAAAMYIFABAjWAAAMYIFABAjWAAAMYIFABDznd6B/6l7vnbbvHL3/v9qz8G2+fJtfRWp8171q/uT+vxUv84rx797u1XV4zZ1PWy777yxAABiBAsAIEawAABiBAsAIEawAABiBAsAIEawAABi1vVYVE3N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" alt="Scan to save contact">
-          </div>
+          <div class="qr-wrap"><img src="data:image/png;base64,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" alt="Scan to save contact"></div>
           <div class="qr-label">Scan to save</div>
         </div>
-
-        <a class="save-btn" href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3AMartin%20Jensen%0ATITLE%3AFounding%20Partner%0AORG%3ATriPoint%20Compliance%20%26%20Business%20Solutions%0ATEL%3A%2B17026087242%0AEMAIL%3Amjensen%40tripointcompliance.com%0AURL%3Ahttps%3A%2F%2Ftripointcompliance.com%0AADR%3A%3B%3B3271%20E.%20Warm%20Springs%20Rd.%3BLas%20Vegas%3BNevada%3B89120%3BUSA%0AEND%3AVCARD" download="martin-jensen.vcf">
+        <a class="save-btn" href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3AMartin%20Jensen%0AN%3AJensen%3BMartin%3B%3B%3B%0ATITLE%3AFounding%20Partner%0AORG%3ATriPoint%20Compliance%20%26%20Business%20Solutions%0ATEL%3A%2B17026087242%0AEMAIL%3Amjensen%40tripointcompliance.com%0AURL%3Ahttps%3A//tripointcompliance.com%0AADR%3A%3B%3B3271%20E.%20Warm%20Springs%20Rd.%3BLas%20Vegas%3BNevada%3B89120%3BUSA%0AEND%3AVCARD" download="martin-jensen.vcf">
           Save Contact
           <span class="save-sub">Tap to add to your contacts</span>
         </a>
